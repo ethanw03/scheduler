@@ -5,7 +5,7 @@ import classNames from "classnames";
 export default function InterviewerListItem(props){
 
   const interviewerListItemClass = classNames("interviewers__item",{
-    "--selected": props.selected
+    "interviewers__item--selected": props.selected
   } )
 
   return (
