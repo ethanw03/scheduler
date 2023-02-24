@@ -47,11 +47,19 @@ const appointments = {
 
 export default function Application(props) {
 
- const [state, setState] = useState({
-  day: "Monday",
-  days: [],
-  appointments: {}
- });
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    appointments: {}
+  });
+
+  const setDay = day => {
+    console.log("day from setDay:", day);
+    return setState({ ...state, day:day })};
+
+    const setDays = (days) => {
+      setState(prev => setState({...prev, days}));
+    }
 
   useEffect(() =>{
     const dayURL = "http://localhost:8001/api/days";
@@ -74,8 +82,8 @@ export default function Application(props) {
       <nav className="sidebar__menu">
       
       <DayList
-        days={days}
-        value={day}
+        days={state.days}
+        value={state.day}
         onChange={setDay}
       />
       </nav>
