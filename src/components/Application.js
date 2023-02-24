@@ -2,7 +2,7 @@ import React,{ useState, useEffect }  from "react";
 import DayList from "./DayList";
 import "components/Application.scss";
 import Appointment from "./Appointment";
-import axios from 'axios';
+import axios from "axios";
 
 
 
@@ -47,8 +47,11 @@ const appointments = {
 
 export default function Application(props) {
 
-  const [day, setDay] = useState("Monday");
-  const [days, setDays] = useState([]);
+ const [state, setState] = useState({
+  day: "Monday",
+  days: [],
+  appointments: {}
+ });
 
   useEffect(() =>{
     const dayURL = "http://localhost:8001/api/days";
