@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 function InterviewerList(props) {
 	const { interviewers } = props;
 
+	//returns all data needed to display interview list
 	const interviewersListData = interviewers.map((interviewer) => {
 		return (
 			<InterviewerListItem
@@ -28,6 +29,7 @@ function InterviewerList(props) {
 	);
 }
 
+//ensures that array is passed as prop
 InterviewerList.propTypes = {
 	interviewers: PropTypes.array.isRequired,
 };

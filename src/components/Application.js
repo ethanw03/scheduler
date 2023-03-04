@@ -15,10 +15,12 @@ export default function Application(props) {
 
 	let appointments = getAppointmentsForDay(state, state.day);
 
+	//find the interview data for specific day
 	const schedule = appointments.map((appointment) => {
 		const interview = getInterview(state, appointment.interview);
 		const interviewers = getInterviewersForDay(state, state.day);
 
+		//props
 		return (
 			<Appointment
 				key={appointment.id}
@@ -33,7 +35,7 @@ export default function Application(props) {
 	});
 
 	return (
-		<main className='layout'>
+		<main className='layout' data-testid='appointment'>
 			<section className='sidebar'>
 				<img
 					className='sidebar--centered'

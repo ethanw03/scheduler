@@ -9,6 +9,7 @@ import Status from './Status';
 import Confirm from './Confirm';
 import Error from './Error';
 
+//stores all conditionals for changing state as well as save and delete behavior
 export default function Appointment(props) {
 	const EMPTY = 'EMPTY';
 	const SHOW = 'SHOW';
@@ -20,10 +21,12 @@ export default function Appointment(props) {
 	const ERROR_SAVE = 'ERROR_SAVE';
 	const ERROR_DELETE = 'ERROR_DELETE';
 
+	//set mode
 	const { mode, transition, back } = useVisualMode(
 		props.interview ? SHOW : EMPTY
 	);
 
+	//function to save interview with error handling
 	function save(name, interviewer) {
 		const interview = {
 			student: name,
@@ -37,7 +40,7 @@ export default function Appointment(props) {
 			})
 			.catch(() => transition(ERROR_SAVE, true));
 	}
-
+	//function to delete appointment
 	function remove() {
 		transition(DELETING, true);
 		props
