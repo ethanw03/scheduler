@@ -14,18 +14,16 @@ export default function Application(props) {
 		useApplicationData();
 
 	let appointments = getAppointmentsForDay(state, state.day);
-
+	const interviewers = getInterviewersForDay(state, state.day);
 	//find the interview data for specific day
 	const schedule = appointments.map((appointment) => {
 		const interview = getInterview(state, appointment.interview);
-		const interviewers = getInterviewersForDay(state, state.day);
 
 		//props
 		return (
 			<Appointment
+				{...appointment}
 				key={appointment.id}
-				id={appointment.id}
-				time={appointment.time}
 				interview={interview}
 				interviewers={interviewers}
 				bookInterview={bookInterview}
@@ -44,7 +42,13 @@ export default function Application(props) {
 				/>
 				<hr className='sidebar__separator sidebar--centered' />
 				<nav className='sidebar__menu'>
-					<DayList days={state.days} value={state.day} onChange={setDay} />
+					<DayList
+						days={state.days}
+						value={state.day}
+						onChange={setDay}
+						bookInterview={bookInterview}
+						cancelInterview={cancelInterview}
+					/>
 				</nav>
 				<img
 					className='sidebar__lhl sidebar--centered'
@@ -54,7 +58,12 @@ export default function Application(props) {
 			</section>
 			<section className='schedule'>
 				{schedule}
-				<Appointment key='last' time='5pm' />
+				<Appointment
+					key='last'
+					time='5pm'
+					bookInterview={bookInterview}
+					cancelInterview={cancelInterview}
+				/>
 			</section>
 		</main>
 	);

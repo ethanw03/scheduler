@@ -29,3 +29,34 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## API Setup
+
+```sh
+This app is reliant on an api server which can be forked https://github.com/lighthouse-labs/scheduler-api
+There are instructions for setup in the read me.
+```
+
+## Dependencies
+
+```sh
+Axios
+Classnames
+Normalize.css
+React
+React-dom
+React-scripts
+Babel/core
+Storybook/addon-actions
+Storybook/addon-backgrounds
+Storybook/addon-links
+Storybook/addons
+Storybook/react
+Testing-library/jest-dom
+Testing-library/react
+Testing-library/react-hooks
+Babel-loader
+Node-sass
+Prop-types
+React-test-renderer
+```

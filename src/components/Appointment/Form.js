@@ -4,6 +4,7 @@ import InterviewerList from 'components/InterviewerList';
 
 //form to input name and interviewer
 export default function Form(props) {
+	console.log(props);
 	const [interviewer, setInterviewer] = useState(props.interviewer || null);
 	const [name, setName] = useState(props.name || '');
 	const [error, setError] = useState('');
@@ -22,7 +23,10 @@ export default function Form(props) {
 			setError('Student name cannot be blank');
 			return;
 		}
-
+		if (interviewer === null) {
+			setError('You must choose an interviewer');
+			return;
+		}
 		setError('');
 		props.onSave(name, interviewer);
 	}

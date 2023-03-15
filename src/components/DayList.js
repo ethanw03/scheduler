@@ -2,7 +2,7 @@ import React from 'react';
 import DayListItem from './DayListItem';
 
 //component holds list of days available and spots available
-export default function dayList(props) {
+export default function DayList(props) {
 	const { days } = props;
 	const dayListData = days.map((day) => {
 		return (
